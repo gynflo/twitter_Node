@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const index = require('./routes');
+require('dotenv').config()
 require('./database');
 
 // Permet de set par defaut le dossier views pour la methode render();
