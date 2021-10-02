@@ -4,4 +4,9 @@
 28/09/21 ==> Rajout du formulaire tweet-form , qui pointe vers /api afin de poster sur mongoDB (create), erreur si non respect du model Tweet
              Rajout de la liste des tweets (read)
 
+2/10/21 ==> Ajout des fonctionalités delete & update du tweet
+            Delete tweet via AJAX 
+
+
+
              

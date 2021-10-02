@@ -12,3 +12,13 @@ exports.createTweet = (tweet) => {
 exports.deleteTweet = (tweetId) => {
     return Tweet.findByIdAndDelete(tweetId).exec();
 }
+
+exports.getTweet = (tweetId) => {
+    return Tweet.findOne({ _id: tweetId }).exec();
+}
+
+exports.updateTweet = (tweetId, tweet) => {
+    return Tweet.findByIdAndUpdate(tweetId, { $set: tweet }, {
+        runValidators: true, // controle de nouveau les regles d'un tweet
+    })
+}

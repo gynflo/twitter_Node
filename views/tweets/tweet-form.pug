@@ -5,11 +5,11 @@ block content
     div(class="profile-container")
       include ../includes/profile
     div(class="flex-fill")
-      form(class="card" method="post" action="/tweets")
+      form(class="card" method="post" action=tweet._id ? "/tweets/update/" + tweet._id : "/tweets")
         div(class="card-header") Écrire un tweet
         div(class="card-body")
           div(class="form-group")
-            textarea(class="form-control" name="content" placeholder="Quoi de neuf ?")
+            textarea(class="form-control" name="content" placeholder="Quoi de neuf ?")=tweet.content
           if errors 
             ul(class="my-2")
               each error in errors 
