@@ -8,5 +8,8 @@
             Delete tweet via AJAX 
 
 
-
+4/10/21 ==> Creation de l'utilisateur , ajout des sessions avec passport
+            Hash des password avec bcrypt
+            Login des utilisateurs
+            Liaison des tweet avec l'utilisateur 
              

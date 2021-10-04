@@ -4,10 +4,13 @@ const path = require('path');
 const errorhandler = require('errorhandler');
 
 const app = express();
+exports.app = app;
 const port = process.env.PORT || 3000;
 const index = require('./routes');
 require('dotenv').config()
 require('./database');
+require('./config/session.config');
+require('./config/passport.config');
 
 // Permet de set par defaut le dossier views pour la methode render();
 app.set('views', path.join(__dirname, 'views'));

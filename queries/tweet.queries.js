@@ -1,4 +1,4 @@
-const Tweet = require('../database/models/tweets.models');
+const Tweet = require('../database/models/tweets.model');
 
 exports.getTweets = () => {
     return Tweet.find({}).exec();
