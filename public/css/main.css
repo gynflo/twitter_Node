@@ -1,3 +1,7 @@
+body {
+    background-color: #f8f9fa;
+}
+
 /*   ********tweet-list********* */
 .tweet-element {
     border-radius: 5px;
@@ -13,14 +17,29 @@
 .btn-tweet {
     border-radius: 30px;
 }
+.navbar {
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+}
 
 /*   ********tweet-list********* */
 .content {
     max-width: 1000px;
     margin-top: 20px
 }
-
-.profile-container{
-    width: 30%;
-    max-width: 300px;
+.tweet-element {
+    border-radius: 0;
+    font-size: 14px;
+    margin-bottom:7px;
+    border: 0px; 
+    border-top: 1px solid #ddd;
 }
+.tweet-element:first-child{
+    border-top: 0px;
+}
+
+/*   ********Profile********* */
+.img-fluid {
+    max-height: 100px;
+}
+
+

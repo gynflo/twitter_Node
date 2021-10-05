@@ -5,17 +5,23 @@ const Schema = mongoose.Schema;
 const userSchema = Schema({
     username: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     local: {
         email:{
             type: String,
             required: true,
+            unique: true
         },
         password: {
             type: String,
             required: true
         }
+    },
+    avatar: {
+        type: String,
+        default: '/images/avatars/default-profile.png'
     }
 });
 
