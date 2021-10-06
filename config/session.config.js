@@ -1,4 +1,4 @@
-const { app } = require('../app');
+const  app  = require('../app');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const { clientPromise } = require('../database');
