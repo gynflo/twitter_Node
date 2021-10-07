@@ -25,3 +25,7 @@ exports.findUserPerId = (id) => {
 exports.findUserPerEmail = (email) => {
     return User.findOne({ 'local.email' : email}).exec()
 }
+
+exports.findUserPerUsername = (username) => {
+    return Tweet.findOne({username}).exec()
+}

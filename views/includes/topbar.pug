@@ -1,17 +1,25 @@
-nav(class="navbar navbar-expand navbar-light bg-light")
+script(src="/javascripts/search-bar.js") 
+nav(class="navbar navbar-expand-md navbar-light bg-white")
   a(class="navbar-brand" href="/tweets")
     img(width="30" height="30" src="/images/twitter.png")
   button(class="navbar-toggler")
     span(class="navbar-toggler-icon")
   div(class="collapse navbar-collapse")
-    ul(class="navbar-nav ml-auto")
       if isAuthenticated
-        li(class="nav-item active")
-          a(class="btn btn-primary btn-tweet mr-3" href="/tweets/new") Tweet
-        li(class="nav-item active")
-          a(class="nav-link" href="/auth/signout") Déconnexion
+        form
+          input(type="text" class="form-control mr-2" placeholder="search" id="search-input")
+          div(id="search-menu-container")
+            div(class="search-menu d-flex flex-column")
+              img(width="40" height="40" class="p-1" src="/images/default-profile.svg")
+              span username
+        ul(class="navbar-nav ml-auto")
+          li(class="nav-item active")
+            a(class="btn btn-primary btn-tweet mr-3" href="/tweets/new") Tweet
+          li(class="nav-item active")
+            a(class="nav-link" href="/auth/signout") Déconnexion
       else
-        li(class="nav-item")
-          a(class="nav-link" href="/auth/signin/form") Connexion
-        li(class="nav-item")
-          a(class="nav-link" href="/users/signup/form") Inscription
+        ul(class="navbar-nav ml-auto")
+          li(class="nav-item")
+            a(class="nav-link" href="/auth/signin/form") Connexion
+          li(class="nav-item")
+            a(class="nav-link" href="/users/signup/form") Inscription

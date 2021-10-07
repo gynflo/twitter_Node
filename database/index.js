@@ -6,5 +6,4 @@ exports.clientPromise = mongoose
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
-    .then(() => console.log(`Connection DB ${process.env.NODE_ENV} OK`))
     .catch(err => console.log(err))

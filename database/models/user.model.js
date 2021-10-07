@@ -22,6 +22,10 @@ const userSchema = Schema({
     avatar: {
         type: String,
         default: '/images/avatars/default-profile.png'
+    },
+    following: {
+        type: [Schema.Types.ObjectId],
+        ref: 'user'
     }
 });
 
