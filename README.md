@@ -12,4 +12,6 @@
             Hash des password avec bcrypt
             Login des utilisateurs
             Liaison des tweet avec l'utilisateur 
+
+8/10/21 ==> Fix various bug - delete - follow user
              

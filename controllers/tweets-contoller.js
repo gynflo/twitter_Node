@@ -12,7 +12,7 @@ exports.tweetList = async (req, res, next) => {
 }
 
 exports.tweetNew = (req, res) => {
-    res.render('tweets/tweet-form', { tweet: {}, isAuthenticated: req.isAuthenticated(), currentUser: req.user })
+    res.render('tweets/tweet-form', { tweet: {}, isAuthenticated: req.isAuthenticated(), currentUser: req.user, user: req.user })
 }
 
 exports.tweetCreate = async (req, res) => {
@@ -32,7 +32,7 @@ exports.tweetDelete = async (req, res, next) => {
         const tweetId = req.params.tweetId;
         await deleteTweet(tweetId);
         const tweets = await getCurrentUserTweetsWithFollowing(req.user);
-        res.render('tweets/tweet-list', { tweets, currentUser, editable: true });
+        res.render('tweets/tweet-list', { tweets, currentUser: req.user, editable: true });
     } catch (error) {
         next(error)
     }
@@ -51,7 +51,6 @@ exports.tweetEdit = async (req, res, next) => {
 }
 
 exports.tweetUpdate = async (req, res, next) => {
-    console.log('req.params ==>', req);
     const tweetId = req.params.tweetId
     try {
         const body = req.body;
