@@ -33,6 +33,7 @@ exports.getCurrentUserTweetsWithFollowing = (user) => {
         .exec()
 }
 
-exports.getUserTweetsFromAuthorId = (authorId) => {
+exports.getUserTweetsFormAuthorId = (authorId) => {
     return Tweet.find({author: authorId }).populate('author').exec()
 }
+

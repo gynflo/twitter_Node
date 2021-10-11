@@ -7,11 +7,9 @@ nav(class="navbar navbar-expand-md navbar-light bg-white")
   div(class="collapse navbar-collapse")
       if isAuthenticated
         form
-          input(type="text" class="form-control mr-2" placeholder="search" id="search-input")
+          input(type="text" class="form-control mr-2" placeholder="Recherche" id="search-input")
           div(id="search-menu-container")
-            div(class="search-menu d-flex flex-column")
-              img(width="40" height="40" class="p-1" src="/images/default-profile.svg")
-              span username
+            include search-menu.pug     
         ul(class="navbar-nav ml-auto")
           li(class="nav-item active")
             a(class="btn btn-primary btn-tweet mr-3" href="/tweets/new") Tweet

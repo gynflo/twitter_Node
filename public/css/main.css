@@ -69,3 +69,20 @@ body {
 .img-fluid {
   max-height: 100px;
 }
+
+.btn-follow {
+  color: #007bff!important;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  border-width: 2px;
+}
+
+.btn-follow:hover{
+  color: white!important;
+}
+
+.btn-unfollow {
+  border-radius: 30px;
+  font-weight: bold;
+}

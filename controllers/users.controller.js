@@ -1,5 +1,12 @@
 const multer = require('multer');
-const { createUser, findUserPerUsername, } = require('../queries/user.queries');
+const {
+    createUser,
+    searchUsersPerUsername,
+    findUserPerUsername,
+    findUserPerId,
+    addUserIdToCurrentUserFollowing,
+    removeUserIdToCurrentUserFollowing
+} = require('../queries/user.queries');
 const { getUserTweetsFormAuthorId } = require('../queries/tweet.queries')
 const path = require('path');
 
@@ -21,10 +28,10 @@ exports.signup = async (req, res) => {
 const upload = multer({
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
-             cb(null, path.join(__dirname, '../public/images/avatars'))
+            cb(null, path.join(__dirname, '../public/images/avatars'))
         },
         filename: (req, file, cb) => {
-             cb(null, `${Date.now()}-${file.originalname}`)
+            cb(null, `${Date.now()}-${file.originalname}`)
         }
     })
 })
@@ -46,6 +53,7 @@ exports.uploadImage = [
 
 exports.userProfile = async (req, res, next) => {
     try {
+
         const username = req.params.username;
         const user = await findUserPerUsername(username);
         const tweets = await getUserTweetsFormAuthorId(user._id);
@@ -61,6 +69,43 @@ exports.userProfile = async (req, res, next) => {
     }
 }
 
+exports.userList = async (req, res, next) => {
+    try {
+        const search = req.query.search;
+        const users = await searchUsersPerUsername(search);
+        res.render('includes/search-menu', { users });
+
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.followUser = async (req, res, next) => {
+    try {
+        const userId = req.params.userId;
+        const [, user] = await Promise.all([
+            addUserIdToCurrentUserFollowing(req.user, userId),
+            findUserPerId(userId)
+        ])
+        res.redirect(`/users/${user.username}`)
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.unFollowUser = async (req, res, next) => {
+    try {
+        const userId = req.params.userId;
+        const [, user] = await Promise.all([
+            removeUserIdToCurrentUserFollowing(req.user, userId),
+            findUserPerId(userId)
+        ])
+        res.redirect(`/users/${user.username}`)
+
+    } catch (error) {
+        next(error)
+    }
+}
 
 
 

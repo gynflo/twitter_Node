@@ -43,7 +43,7 @@ exports.tweetEdit = async (req, res, next) => {
     try {
         const tweetId = req.params.tweetId;
         const tweet = await getTweet(tweetId);
-        res.render('tweets/tweet-form', { tweet, isAuthenticated: req.isAuthenticated(), currentUser: req.user })
+        res.render('tweets/tweet-form', { tweet, isAuthenticated: req.isAuthenticated(),user: req.user, currentUser: req.user })
 
     } catch (error) {
         next(error)

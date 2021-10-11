@@ -14,4 +14,10 @@
             Liaison des tweet avec l'utilisateur 
 
 8/10/21 ==> Fix various bug - delete - follow user
+
+11/10/21 ==> Finish features delete & follow user 
+             Update profile 
+             
+
+             ***** FINISH *****
              
